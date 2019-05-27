@@ -36,7 +36,7 @@ class Tree(object):
 		if self.root is None:
 			return
 		else:
-			queue = []
+			# queue = []
 			queue = [self.root]
 		while queue:
 			cur_node = queue.pop(0)
