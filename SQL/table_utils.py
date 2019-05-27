@@ -27,6 +27,10 @@ def remove_emp(emp):
 			WHERE first=:first AND last=:last""",
 			{'first':emp.first, 'last':emp.last})
 
+def printDB(cursor, table):
+	cursor.execute("SELECT * FROM %s" %table)
+	print(cur.fetchall())
+
 
 conn = sqlite3.connect('emp.db') # create memory space/link to space(file) if exist
 cur = conn.cursor() # create cursor, like open() when dealing files
@@ -48,7 +52,11 @@ insert_emp(emp_2)
 emps = get_emps_by_name('Dow')
 print(emps)
 
+
+
 update_emp(emp_2, 70000)
+printDB(cur,'employees')
+
 remove_emp(emp_1)
 
 emps = get_emps_by_name('Dow')
